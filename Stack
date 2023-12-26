@@ -16,7 +16,6 @@ void push(int x)
 {
     is_empty();
     is_full();
-    is_full();
     top=top+1;
     stk[top]=x;
 }
@@ -25,7 +24,7 @@ void pop()
     is_empty();
     int x=stk[top];
     top=top-1;
-    printf("the deleted element is: %d",x);
+    printf("\nthe deleted element is: %d",x);
 }
 void peak()
 {
