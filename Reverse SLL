@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<malloc.h>
+struct node
+{
+    int data;
+    struct node*next;
+}*head=NULL,*p,*t,*newnode;
+int main()
+{
+    int a[]={1,2,3,4,5};
+    int n=5,i;
+    for(i=0;i<n;i++)
+    {
+        newnode=(struct node *)malloc(sizeof(struct node));
+        newnode->data=a[i];
+        newnode->next=NULL;
+        if(head==NULL)
+        {
+            head=newnode;
+            p=newnode;
+        }
+        else
+        {
+            for(p=head;p->next!=NULL;p=p->next);
+            p->next=newnode;
+            p=newnode;
+        }
+    }
+    for(p=head;p!=NULL;p=p->next)
+    {
+        for(t=p->next;t!=NULL;t=t->next)
+        {
+            if(p->data < t->data)
+            {
+                int temp=p->data;
+                p->data=t->data;
+                t->data=temp;
+            }
+        }
+    }
+    for(p=head;p!=NULL;p=p->next)
+    {
+        printf("%d->",p->data);
+    }
+}
