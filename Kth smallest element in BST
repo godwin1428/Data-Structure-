@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<malloc.h>
+#include<stdlib.h>
+char a[100];
+int i=-1;
+struct node
+{
+    struct node *left;
+    int data;
+    struct node *right;
+  
+}*root=NULL,*newnode;
+
+struct node *insert(struct node *root,char ele)
+{
+    if(root==NULL)
+    {
+        newnode=(struct node*)malloc(sizeof(struct node));
+        newnode->data=ele;
+        newnode->left=NULL;
+        newnode->right=NULL;
+        return(newnode);
+    }
+    else if(ele>root->data)
+    {
+        root->right=insert(root->right,ele);
+    }
+    else if(ele<root->data)
+    {
+        root->left=insert(root->left,ele);
+    }
+    return(root);
+} 
+
+void inorder(struct node *root)
+{
+    if(root!=NULL)
+    {
+        inorder(root->left);
+        i++;
+        a[i] =root->data;
+        inorder(root->right);
+    }
+}
+int main()
+{
+  
+  char ele[]={'5','3','6','2','4','N','N','1'};
+  
+  for(int i=0;i<8;i++)
+  root=insert(root,ele[i]);
+  inorder(root);
+  printf("%c",a[3-1]);
+}
