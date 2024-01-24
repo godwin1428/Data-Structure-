@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+  char a[]={"tree"};
+  int i,j,len=strlen(a);
+  int freq[len];
+  for(i=0;i<len;i++)
+  {
+    freq[i]=1;
+    for(j=i+1;j<len;j++)
+    {
+      if(a[i]==a[j])
+      {
+        freq[i]++;
+        a[j]=0;
+      }
+    }
+  }
+  for(i=0;i<len;i++)
+  {
+    if(a[i]!=' ' &&a[i]!=0)
+    {
+      printf("%c-%d\n",a[i],freq[i]);
+    }
+  }
+}
