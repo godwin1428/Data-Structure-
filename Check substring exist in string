@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+  int i,n,m,j,pos;
+  char haystack[100]="sadbutsad";
+  char needle[100] = "sad";
+  n=strlen(haystack);
+  m=strlen(needle);
+  for(i=0; i<= n - m; i++) 
+  {
+    for (j = 0; j < m; j++)
+    {
+       if (haystack[i + j] != needle[j])
+       { 
+            pos=-1;
+            break;
+       }
+       pos=i;
+    }
+    if(pos>-1)
+    break;
+  }
+  printf("%d",pos);
+}
