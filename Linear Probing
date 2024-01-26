@@ -1,0 +1,64 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define siz 10
+
+int h[siz]={NULL};
+
+void insert()
+{
+
+ int key,index,i,flag=0,hkey;
+ printf("\nenter a value to insert into hash table\n");
+ scanf("%d",&key);
+ hkey=key%siz;
+
+ for(i=0;i<siz;i++)
+    {
+
+     index=(hkey+i)%siz;
+
+     if(h[index] == NULL)
+     {
+        h[index]=key;
+         break;
+     }
+
+    }
+
+    if(i == siz)
+
+     printf("\nelement cannot be inserted\n");
+}
+
+void display()
+{
+
+  int i;
+
+  printf("\nelements in the hash table are \n");
+
+  for(i=0;i<siz; i++)
+
+  printf("\nat index %d \t value =  %d",i,h[i]);
+
+}
+
+int main()
+{
+    int opt,i;
+    while(1)
+    {
+        printf("\nPress 1. Insert\t 2. Display \t3.Exit \n");
+        scanf("%d",&opt);
+        switch(opt)
+        {
+            case 1:
+                insert();
+                break;
+            case 2:
+                display();
+                break;
+            case 3:exit(0);
+        }
+    }
+}
