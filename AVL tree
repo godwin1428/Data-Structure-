@@ -244,13 +244,6 @@ void postorder(struct node *root)
      }
 }
 
-
-
-
-
-
-
-
 struct node *Delete(struct node *root,int x)
 {      
   struct node *p;
